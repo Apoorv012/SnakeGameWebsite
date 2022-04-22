@@ -58,9 +58,9 @@ window.addEventListener("keydown", (event) => {
       case "ArrowRight":
         snake.setDirection(1, 0);
         break;
-      case "Space":
-        snake.willGrow = true;
-        break;
+      // case "Space":                  <- Debug Purpose
+      //   snake.willGrow = true;
+      //   break;
       default:
         return;
     }

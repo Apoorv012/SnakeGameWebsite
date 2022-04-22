@@ -16,21 +16,25 @@ class Apple {
   }
 
   changePosition(head, body) {
-    var x = Math.floor(Math.random() * (canvas.width / this.size));
-    var y = Math.floor(Math.random() * (canvas.width / this.size));
-
-    if (x == head.x && y == head.y) {
-      this.changePosition(head, body);
-      return;
-    }
-
-    Array.from(body).forEach((element) => {
-      if (x == element.x && y == element.y) {
-        this.changePosition(head, body);
-        return;
+    var x, y;
+    while (true) {
+      x = Math.floor(Math.random() * (canvas.width / this.size));
+      y = Math.floor(Math.random() * (canvas.width / this.size));
+  
+      if (x == head.x && y == head.y) {
+        continue;
       }
-    });
+      
+      var bad = false;
+      for (var i = 0; i < body.length; i++) {
+        if (x == body[i].x && y == body[i].y) {
+          bad = true;
+          break;
+        }
+      }
 
+      if (!bad) break;
+    }
     this.pos.x = x;
     this.pos.y = y;
   }
