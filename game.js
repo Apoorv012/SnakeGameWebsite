@@ -44,19 +44,19 @@ window.addEventListener("keydown", (event) => {
     switch (event.code) {
       case "Down":
       case "ArrowDown":
-        snake.setDirection(0, 1);
+        if (!snake.inDirection(0, -1)) snake.setDirection(0, 1);
         break;
       case "Up":
       case "ArrowUp":
-        snake.setDirection(0, -1);
+        if (!snake.inDirection(0, 1)) snake.setDirection(0, -1);
         break;
       case "Left":
       case "ArrowLeft":
-        snake.setDirection(-1, 0);
+        if (!snake.inDirection(1, 0)) snake.setDirection(-1, 0);
         break;
       case "Right":
       case "ArrowRight":
-        snake.setDirection(1, 0);
+        if (!snake.inDirection(-1, 0)) snake.setDirection(1, 0);
         break;
       // case "Space":                  <- Debug Purpose
       //   snake.willGrow = true;

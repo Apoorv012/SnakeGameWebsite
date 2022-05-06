@@ -31,6 +31,10 @@ class Snake {
     });
   }
 
+  inDirection(x, y) {
+    return this.direction.x == x && this.direction.y == y;
+  }
+
   move(apple) {
     if (this.willGrow) {
       this.willGrow = false;
